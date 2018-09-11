@@ -4,7 +4,7 @@ import Vue from 'vue';
 import 'normalize.css';
 import App from './App';
 import router  from './router';
-import oauthRouter from './router/oauthRouter';
+import OauthRouter from './router/oauthRouter';
 import error from './router/error';
 import store from './store';
 import './common/element-ui';
@@ -12,34 +12,35 @@ import './common/element-ui';
 Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
+  const oauthRouter = OauthRouter.getRouter();
   if(store.state.login.role){ //判断role 是否存在
     if (store.state.login.newRouter.length !== 0) {
       next();
     } else {
-      let newrouter;
+      let newrouter = [];
       if (store.state.login.role === 'admin') {
         newrouter = oauthRouter;
       } else {
-        let newchildren = oauthRouter[0].children.filter(route => {
+        let newchildren = [];
+        oauthRouter[0].children.forEach(route => {
           if (route.meta) {
             if (route.meta.role.indexOf(store.state.login.role) > 0) {
-              return true
+              newchildren.push(route);
             }
-            return false
-          }else{
-            return true
+          } else {
+            newchildren.push(route);
           }
         });
-        console.log(newchildren);
         newrouter = oauthRouter;
-        newrouter[0].children = newchildren
+        newrouter[0].children = newchildren;
       }
       router.addRoutes(newrouter.concat(error));
       store.dispatch('roles',newrouter).then(() => {
-        next({ ...to })
+        next({ ...to });
       });
     }
   }else{
+    console.log(oauthRouter);
     if (['/login'].indexOf(to.path) !== -1) {
       next()
     } else {
