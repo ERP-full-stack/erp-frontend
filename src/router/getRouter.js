@@ -3,8 +3,7 @@ const Overview = r => require.ensure([], () => r(require('@/views/overview/index
 const Flow = r => require.ensure([], () => r(require('@/views/flow/index.vue')), 'flow');
 const Sale = r => require.ensure([], () => r(require('@/views/sale/index.vue')), 'sale');
 
-const getRouter = () => {
-  return [
+export const getRouter = [
     {
       path: '/',
       component: Layout,
@@ -42,9 +41,4 @@ const getRouter = () => {
         },
       ],
     },
-  ];
-};
-
-export default {
-  getRouter,
-};
+];

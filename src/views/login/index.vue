@@ -50,12 +50,8 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.login(this.ruleForm).then(() => {
-            this.$router.push({
-              path: '/',
-            });
-          }).catch(() => {
-            this.$message.error('用户名密码有误，请重新输入！');
+          this.$router.push({
+            path: '/',
           });
         } else {
           return false;
