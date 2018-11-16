@@ -1,10 +1,9 @@
 <template>
    <div class="layout">
-     <Menu></Menu>
+     <Topbar></Topbar>
      <div class="content">
-       <Topbar></Topbar>
+       <Menu></Menu>
        <div class="main">
-         <h2>{{this.$store.state.login.describe}}</h2>
          <router-view></router-view>
        </div>
      </div>
@@ -12,8 +11,8 @@
 </template>
 
 <script>
-import Menu from './../../components/menu/';
-import Topbar from './../../components/topbar/';
+import Menu from './menu/';
+import Topbar from './topbar/';
 
 export default {
   components: {
@@ -28,16 +27,16 @@ export default {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
-  }
-  .content {
-    flex: 1;
-    display: flex;
     flex-direction: column;
-    .main {
-      width: 100%;
-      height: 100%;
-      padding: 20px;
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      .main {
+        position: relative;
+        flex: 1;
+        padding: 0 16px;
+      }
     }
   }
 </style>

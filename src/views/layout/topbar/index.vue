@@ -25,8 +25,8 @@ export default {
   .topbar {
     flex: none;
     width: 100%;
-    height: 68px;
-    background: #fff;
+    height: 60px;
+    background: #4d317c;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.08);
     display: flex;
     align-items: center;
