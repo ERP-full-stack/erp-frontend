@@ -18,7 +18,7 @@ export default [
     }
   },
   {
-    path: '/overview/details/:id',
+    path: '/overview/detail/:id',
     component: Detail,
     meta: {
       tag: '/overview/list',

@@ -1,61 +1,18 @@
 <template>
     <div>
       <search-pager :option="option" :tools="tools"></search-pager>
-      <div class="lqy-query-form">
-        <el-form :model="formInline"
-                 class="demo-form-inline"
-                 size="mini"
-                 label-position="top">
-          <el-row :gutter="20">
-            <el-col :span="4">
-              <el-form-item label="审批人">
-                <el-input v-model="formInline.user" placeholder="审批人"></el-input>
-              </el-form-item>
-            </el-col>
-            <el-col :span="4">
-              <el-form-item label="审批人">
-                <el-input v-model="formInline.user" placeholder="审批人"></el-input>
-              </el-form-item>
-            </el-col>
-            <el-col :span="4">
-              <el-form-item label="审批人">
-                <el-input v-model="formInline.user" placeholder="审批人"></el-input>
-              </el-form-item>
-            </el-col>
-            <el-col :span="4">
-              <el-form-item label="审批人">
-                <el-input v-model="formInline.user" placeholder="审批人"></el-input>
-              </el-form-item>
-            </el-col>
-            <el-col :span="4">
-              <el-form-item label="审批人">
-                <el-input v-model="formInline.user" placeholder="审批人"></el-input>
-              </el-form-item>
-            </el-col>
-            <el-col :span="4">
-              <el-form-item label="审批人">
-                <el-input v-model="formInline.user" placeholder="审批人"></el-input>
-              </el-form-item>
-            </el-col>
-            <el-col :span="4">
-              <el-form-item class="query-form-btns">
-                <el-button type="primary" icon="iconfont icon-search" @click="onSubmit">
-                  查询</el-button>
-                <el-button type="text" icon="iconfont icon-reset" @click="onSubmit">重置</el-button>
-              </el-form-item>
-            </el-col>
-          </el-row>
-        </el-form>
-      </div>
+      <query-form :form-fields="formFields"></query-form>
     </div>
 </template>
 
 <script>
 import searchPager from './../../components/search-pager';
+import queryForm from './../../components/query-form';
 
 export default {
   components: {
     searchPager,
+    queryForm,
   },
   data() {
     return {
@@ -68,11 +25,11 @@ export default {
           icon: 'iconfont icon-refresh',
           show: true,
           func: () => {
-            alert(123);
+            // alert(123);
           },
         },
         {
-          label: '新增',
+          label: '新增123',
           icon: 'iconfont icon-plus',
           show: true,
           // disabled: () => 1 < 2,
@@ -83,8 +40,16 @@ export default {
           icon: 'iconfont icon-delete',
           disabled: true,
           func: () => {
-            alert(123);
+            // alert(123);
           },
+        },
+      ],
+      formFields: [
+        {
+          label: '姓名',
+          type: 'text',
+          placeholder: '请输入姓名',
+          columnName: 'name',
         },
       ],
       formInline: {
@@ -95,7 +60,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log('submit!');
+      // console.log('submit!');
     },
   },
 };

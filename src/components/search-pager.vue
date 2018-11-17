@@ -73,7 +73,7 @@ export default {
     width: 100%;
     padding: 12px 0;
     background: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     .search-pager-wrap {
       display: flex;
       justify-content: space-between;
