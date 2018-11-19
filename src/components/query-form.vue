@@ -1,16 +1,16 @@
 <template>
   <div class="lqy-query-form">
-    <el-form :model="formInline"
+    <el-form :model="model"
              class="demo-form-inline"
              size="mini"
              label-position="top">
       <el-row :gutter="20">
         <template v-for="(item, index) in formFields">
           <el-col :span="3" :key="index">
-            <form-item :item="item"></form-item>
+            <form-item :item="item" :model="model"></form-item>
           </el-col>
         </template>
-        <el-col :span="3">
+        <el-col :span="4">
           <el-form-item class="query-form-btns">
             <el-button type="primary" icon="iconfont icon-search" @click="onSubmit">
               查询</el-button>
@@ -33,8 +33,34 @@ export default {
       default: () => [],
     },
   },
+  data() {
+    return {
+      model: {},
+    };
+  },
+  watch: {
+    model(val, oVal) {
+      console.log(val);
+      console.log(oVal);
+    },
+  },
+  mounted() {
+    this.createModel();
+  },
   components: {
     formItem,
+  },
+  methods: {
+    onSubmit() {
+      // console.log('submit!');
+      console.log(this.model);
+    },
+    createModel() {
+      // console.log(this.formFields);
+      this.formFields.forEach((item) => {
+        this.model[item.columnName] = '';
+      });
+    },
   },
 };
 </script>

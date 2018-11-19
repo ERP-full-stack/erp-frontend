@@ -50,18 +50,24 @@ export default {
           type: 'text',
           placeholder: '请输入姓名',
           columnName: 'name',
+          icon: {
+            slot: 'suffix',
+            class: 'el-icon-search',
+          },
+          complex: '.123',
+        },
+        {
+          label: '年龄',
+          type: 'text',
+          placeholder: '请输入年龄',
+          columnName: 'age',
+          complex: {
+            slot: 'prepend',
+            val: '.com',
+          },
         },
       ],
-      formInline: {
-        user: '',
-        region: '',
-      },
     };
-  },
-  methods: {
-    onSubmit() {
-      // console.log('submit!');
-    },
   },
 };
 </script>
