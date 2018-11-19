@@ -36,4 +36,17 @@
       height: 47px;
     }
   }
+
+  /*============= el-pagination =============*/
+  .el-pagination {
+    display: flex;
+    padding: 0 !important;
+    margin-top: 16px;
+    .el-pagination__sizes {
+      flex: 1;
+    }
+    .el-select .el-input {
+      margin: 0 !important;
+    }
+  }
 }

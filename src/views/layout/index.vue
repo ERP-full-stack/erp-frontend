@@ -36,6 +36,7 @@ export default {
         position: relative;
         flex: 1;
         padding: 0 16px;
+        overflow: hidden;
       }
     }
   }

@@ -38,12 +38,12 @@ export default {
       model: {},
     };
   },
-  watch: {
-    model(val, oVal) {
-      console.log(val);
-      console.log(oVal);
-    },
-  },
+  // watch: {
+  //   model(val, oVal) {
+  //     console.log(val);
+  //     console.log(oVal);
+  //   },
+  // },
   mounted() {
     this.createModel();
   },
@@ -65,6 +65,9 @@ export default {
 };
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+  .lqy-query-form {
+    margin-bottom: 16px;
+    border-bottom: 1px solid #dcdae2;
+  }
 </style>

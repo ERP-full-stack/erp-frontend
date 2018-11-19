@@ -24,13 +24,15 @@ formFields: [
           slot: 'suffix',
           class: 'el-icon-search',
         },
-        complex: '.123',
+        complex: '.com',
      }
   }
 ]
 ```
 
-#### 1、Attributes
+#### Input 配置文档
+
+##### Attributes
 
 <table>
     <tr>
@@ -51,7 +53,7 @@ formFields: [
     </tr>
     <tr>
         <th>columnName</th>
-        <th>该表单字段名（键）</th>
+        <th>键</th>
         <th>string</th>
         <th>-</th>
         <th>-</th>
@@ -59,20 +61,45 @@ formFields: [
     </tr>
     <tr>
         <th>icon</th>
-        <th>带icon的输入框</th>
+        <th>icon</th>
         <th>string/object</th>
-        <th>1、若`string`，则直接输出该值，默认类型是`suffix`。2、若`object`,则判断输出。</th>
+        <th>1、若string，则直接输出该值，默认类型是suffix。2、若object,则判断输出。</th>
         <th>suffix</th>
-        <th>`icon: {slot: 'prefix', class: 'el-icon-search',}`</th>
+        <th>icon: {slot: 'prefix', class: 'el-icon-search',} / icon: ''</th>
     </tr>
     <tr>
         <th>complex</th>
-        <th>带复合框的输入框</th>
+        <th>带复合框</th>
         <th>string/object</th>
-        <th>1、若`string`，则直接输出该值，默认类型是`append`。2、若`object`,则判断输出。</th>
+        <th>1、若string，则直接输出该值，默认类型是append。2、若object,则判断输出。</th>
         <th>append</th>
+        <th>complex: {slot: 'prepend',val: '.com',} / complex: ''</th>
     </tr>
 </table>
 
+##### Slots
+
+<table>
+    <tr>
+        <th>name</th>
+        <th>说明</th>
+    </tr>
+    <tr>
+        <th>prefix</th>
+        <th>输入框头部内容</th>
+    </tr>
+    <tr>
+        <th>suffix</th>
+        <th>输入框尾部内容</th>
+    </tr>
+    <tr>
+        <th>prepend</th>
+        <th>输入框前置内容</th>
+    </tr>
+    <tr>
+        <th>append</th>
+        <th>输入框后置内容</th>
+    </tr>
+</table>
 
 

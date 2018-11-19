@@ -2,18 +2,13 @@
     <div>
       <search-pager :option="option" :tools="tools"></search-pager>
       <query-form :form-fields="formFields"></query-form>
+      <table-list :tables="tables"></table-list>
     </div>
 </template>
 
 <script>
-import searchPager from './../../components/search-pager';
-import queryForm from './../../components/query-form';
 
 export default {
-  components: {
-    searchPager,
-    queryForm,
-  },
   data() {
     return {
       option: {
@@ -57,16 +52,70 @@ export default {
           complex: '.123',
         },
         {
-          label: '年龄',
-          type: 'text',
-          placeholder: '请输入年龄',
-          columnName: 'age',
-          complex: {
-            slot: 'prepend',
-            val: '.com',
-          },
+          label: '状态',
+          type: 'select',
+          placeholder: '请选中状态',
+          columnName: 'status',
+          lookup: '', // 接口
+        },
+        {
+          label: '状态1',
+          type: 'select',
+          placeholder: '请选中状态',
+          columnName: 'status1',
+          lookup: '', // 接口
+          multiple: false,
         },
       ],
+      tables: {
+        url: {
+          method: '',
+          data: {},
+        },
+        attr: {
+          stripe: true,
+          border: true,
+          size: 'small',
+          fit: true,
+          highlightCurrentRow: true,
+        },
+        columns: [
+          {
+            label: '姓名',
+            key: 'name',
+            width: '80px',
+          },
+          {
+            label: '年龄',
+            key: 'age',
+            width: '80px',
+          },
+          {
+            label: '性别',
+            key: 'gender',
+            width: '',
+            filter: {
+              type: 'lookup',
+              api: 'www.baidu.com',
+            },
+          },
+        ],
+        operation: {
+          label: '操作',
+          fixed: 'right',
+          width: '100px',
+          options: [
+            {
+              label: '详情',
+              show: true,
+              disabled: false,
+              func: (row) => {
+                // console.log(row);
+              },
+            },
+          ],
+        },
+      },
     };
   },
 };
