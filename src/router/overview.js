@@ -10,7 +10,7 @@ const Update = r => require.ensure([], () => r(require('@/views/overview/update'
 
 export default [
   {
-    path: '/overview/list',
+    path: 'overview/list',
     component: List,
     meta: {
       tag: '/overview/list',
@@ -18,7 +18,7 @@ export default [
     }
   },
   {
-    path: '/overview/detail/:id',
+    path: 'overview/detail/:id',
     component: Detail,
     meta: {
       tag: '/overview/list',
@@ -26,7 +26,7 @@ export default [
     }
   },
   {
-    path: '/overview/add',
+    path: 'overview/add',
     component: Add,
     meta: {
       tag: '/overview/list',
@@ -34,7 +34,7 @@ export default [
     }
   },
   {
-    path: '/overview/update/:id',
+    path: 'overview/update/:id',
     component: Update,
     meta: {
       tag: '/overview/list',

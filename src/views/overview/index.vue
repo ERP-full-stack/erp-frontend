@@ -109,7 +109,7 @@ export default {
               label: '详情',
               show: true,
               disabled: false,
-              func: (row) => {
+              func: () => {
                 // console.log(row);
               },
             },

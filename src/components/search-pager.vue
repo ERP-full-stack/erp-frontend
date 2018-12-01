@@ -71,14 +71,14 @@ export default {
     top: 0;
     z-index: 10;
     width: 100%;
-    padding: 12px 0;
+    padding: 6px 0;
     background: #fff;
     margin-bottom: 5px;
     .search-pager-wrap {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 8px 0;
+      padding: 4px 0;
       .back {
         font-size: 15px;
         color: $primary-hover;

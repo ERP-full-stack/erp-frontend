@@ -1,23 +1,17 @@
 <template>
   <div class="lqy-query-form">
     <el-form :model="model"
-             class="demo-form-inline"
+             :inline="true"
              size="mini"
-             label-position="top">
-      <el-row :gutter="20">
+             label-position="right">
         <template v-for="(item, index) in formFields">
-          <el-col :span="3" :key="index">
-            <form-item :item="item" :model="model"></form-item>
-          </el-col>
+            <form-item :item="item" :model="model" :key="index"></form-item>
         </template>
-        <el-col :span="4">
-          <el-form-item class="query-form-btns">
-            <el-button type="primary" icon="iconfont icon-search" @click="onSubmit">
-              查询</el-button>
-            <el-button type="text" icon="iconfont icon-reset" @click="onSubmit">重置</el-button>
-          </el-form-item>
-        </el-col>
-      </el-row>
+        <el-form-item class="query-form-btns">
+          <el-button type="primary" icon="iconfont icon-search" @click="onSubmit">
+            查询</el-button>
+          <el-button type="text" icon="iconfont icon-reset" @click="onSubmit">重置</el-button>
+        </el-form-item>
     </el-form>
   </div>
 </template>
@@ -38,12 +32,6 @@ export default {
       model: {},
     };
   },
-  // watch: {
-  //   model(val, oVal) {
-  //     console.log(val);
-  //     console.log(oVal);
-  //   },
-  // },
   mounted() {
     this.createModel();
   },
@@ -53,7 +41,7 @@ export default {
   methods: {
     onSubmit() {
       // console.log('submit!');
-      console.log(this.model);
+      // console.log(this.model);
     },
     createModel() {
       // console.log(this.formFields);
@@ -67,7 +55,7 @@ export default {
 
 <style scoped lang="scss">
   .lqy-query-form {
-    margin-bottom: 16px;
+    margin-bottom: 6px;
     border-bottom: 1px solid #dcdae2;
   }
 </style>

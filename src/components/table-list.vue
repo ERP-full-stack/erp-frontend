@@ -3,7 +3,8 @@
     <el-table
       v-loading="loading"
       v-bind="tables.attr"
-      height="550px"
+      class="default-table"
+      :height="tableHeight"
       :data="data"
       style="width: 100%"
       @selection-change="handleSelectionChange">
@@ -46,6 +47,8 @@
       </el-table-column>
     </el-table>
     <el-pagination
+      class="lqy-pagination"
+      background
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page.sync="currentPage2"
@@ -74,7 +77,15 @@ export default {
       data: [],
       loading: false,
       currentPage2: 1,
+      tableHeight: null,
     };
+  },
+  mounted() {
+    this.handleResize();
+    this.$bus.$on('GLOBAL_RESIZE', this.handleResize);
+  },
+  beforeDestroy() {
+    this.$bus.$off('GLOBAL_RESIZE', this.handleResize);
   },
   methods: {
     initTables() {
@@ -190,7 +201,7 @@ export default {
     },
     handleCommand(btn, row) {
       if (!btn.func) {
-        return false;
+        return;
       }
       btn.func(row);
     },
@@ -207,13 +218,20 @@ export default {
       if (typeof btn.show === 'function') {
         return btn.show(row);
       }
-      return !btn.show ? false : true;
+      return btn.show;
     },
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
+    handleSizeChange() {
+      // console.log(`每页 ${val} 条`);
     },
-    handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
+    handleCurrentChange() {
+      // console.log(`当前页: ${val}`);
+    },
+    handleResize() {
+      const bodyHeight = window.innerHeight || document.documentElement.clientHeight;
+      const topbarHeight = document.querySelector('.topbar').clientHeight;
+      const lqySearchPagerHeight = document.querySelector('.lqy-search-pager').clientHeight;
+      const lqyPaginationHeight = document.querySelector('.lqy-pagination').clientHeight;
+      this.tableHeight = `${bodyHeight - topbarHeight - lqySearchPagerHeight - lqyPaginationHeight - 40}px`;
     },
   },
 };

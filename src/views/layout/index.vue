@@ -19,6 +19,11 @@ export default {
     Menu,
     Topbar,
   },
+  mounted() {
+    window.onresize = () => {
+      this.$bus.$emit('GLOBAL_RESIZE');
+    };
+  },
 };
 </script>
 
@@ -35,8 +40,8 @@ export default {
       .main {
         position: relative;
         flex: 1;
-        padding: 0 16px;
-        overflow: hidden;
+        padding: 0 16px 5px 16px;
+        overflow: auto;
       }
     }
   }

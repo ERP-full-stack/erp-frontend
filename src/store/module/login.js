@@ -1,4 +1,4 @@
-import loginUserInfo from './../../data/loginUserInfo';
+// import loginUserInfo from './../../data/loginUserInfo';
 
 const login = {
   state: {
