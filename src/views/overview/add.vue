@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import searchPager from './../../components/search-pager';
+import searchPager from '../../components/query-table/search-pager';
 
 export default {
   components: {

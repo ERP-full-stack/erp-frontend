@@ -3,6 +3,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css' // 这个样式必须引入
 import Router from 'vue-router';
 import Overview from './overview';
+import ReportForm from './reportForm';
 import Error from './error';
 
 // 简单配置
@@ -34,6 +35,7 @@ const router = new Router({
           component: Home,
         },
         ...Overview,
+        ...ReportForm,
         ...Error,
       ],
     },

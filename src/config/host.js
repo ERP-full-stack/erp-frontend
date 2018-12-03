@@ -3,18 +3,17 @@
  * created by lqy 1018/11/19
  * @type {string}
  */
-let host = '';
-const evn = process.env.NODE_ENV;
 
-if (evn === 'development') {
-  host = '';
-} else if (evn === 'production') {
+let host = '';
+
+if (process.env.NODE_ENV === 'development') {
+  host = 'http://localhost:3000';
+} else if (process.env.NODE_ENV === 'production') {
   host = '生产环境';
 } else {
   host = '';
 }
 
-export {
+export default {
   host,
-  evn,
 };

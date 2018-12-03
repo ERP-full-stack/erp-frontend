@@ -1,5 +1,5 @@
 <template>
-  <div class="lqy-query-form">
+  <div class="query-form">
     <el-form :model="model"
              :inline="true"
              size="mini"
@@ -54,7 +54,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .lqy-query-form {
+  .query-form {
     margin-bottom: 6px;
     border-bottom: 1px solid #dcdae2;
   }

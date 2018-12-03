@@ -1,5 +1,3 @@
-// import loginUserInfo from './../../data/loginUserInfo';
-
 const login = {
   state: {
     username: window.sessionStorage.getItem('username'),
@@ -22,27 +20,27 @@ const login = {
     },
   },
   actions: {
-    login({ commit }, info) {
-      return new Promise((resolve, reject) => {
-        let status = 0;
-        loginUserInfo.forEach((value) => {
-          if (value.username === info.username) {
-            window.sessionStorage.setItem('username', value.username);
-            window.sessionStorage.setItem('role', value.role);
-            window.sessionStorage.setItem('describe', value.describe);
-            commit('SET_USERNAME', value.username);
-            commit('SET_ROLE', value.role);
-            commit('SET_DESCRIBE', value.describe);
-            status += 1;
-          }
-        });
-        if (status > 0) {
-          resolve(info);
-        } else {
-          reject(info);
-        }
-      });
-    },
+    // login({ commit }, info) {
+    //   return new Promise((resolve, reject) => {
+    //     let status = 0;
+    //     // loginUserInfo.forEach((value) => {
+    //     //   if (value.username === info.username) {
+    //     //     window.sessionStorage.setItem('username', value.username);
+    //     //     window.sessionStorage.setItem('role', value.role);
+    //     //     window.sessionStorage.setItem('describe', value.describe);
+    //     //     commit('SET_USERNAME', value.username);
+    //     //     commit('SET_ROLE', value.role);
+    //     //     commit('SET_DESCRIBE', value.describe);
+    //     //     status += 1;
+    //     //   }
+    //     // });
+    //     if (status > 0) {
+    //       resolve(info);
+    //     } else {
+    //       reject(info);
+    //     }
+    //   });
+    // },
     roles({ commit }, newRouter) {
       return new Promise((resolve) => {
         commit('SET_NEWROUTER', newRouter);

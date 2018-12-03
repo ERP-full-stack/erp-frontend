@@ -227,11 +227,12 @@ export default {
       // console.log(`当前页: ${val}`);
     },
     handleResize() {
-      const bodyHeight = window.innerHeight || document.documentElement.clientHeight;
-      const topbarHeight = document.querySelector('.topbar').clientHeight;
-      const lqySearchPagerHeight = document.querySelector('.lqy-search-pager').clientHeight;
-      const lqyPaginationHeight = document.querySelector('.lqy-pagination').clientHeight;
-      this.tableHeight = `${bodyHeight - topbarHeight - lqySearchPagerHeight - lqyPaginationHeight - 40}px`;
+      // const bodyHeight = window.innerHeight || document.documentElement.clientHeight;
+      // const topbarHeight = document.querySelector('.topbar').clientHeight;
+      // const lqySearchPagerHeight = document.querySelector('.lqy-search-pager').clientHeight;
+      // const lqyPaginationHeight = document.querySelector('.lqy-pagination').clientHeight;
+      // this.tableHeight = `${bodyHeight - topbarHeight -
+      // lqySearchPagerHeight - lqyPaginationHeight - 40}px`;
     },
   },
 };

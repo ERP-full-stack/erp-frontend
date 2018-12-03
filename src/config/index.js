@@ -1,5 +1,5 @@
-import { host, evn } from './host';
+import Host from './host';
 
-export const HOST = host;
+export const HOST = Host.host;
 
-export const EVN = evn;
+export const EVN = process.env.NODE_ENV;
