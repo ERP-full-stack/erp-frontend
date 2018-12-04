@@ -10,7 +10,7 @@ import Error from './error';
 NProgress.inc(0.2);
 NProgress.configure({ easing: 'ease', speed: 500, showSpinner: false });
 
-const Login = r => require.ensure([], () => r(require('@/views/login/index.vue')), 'login');
+const Login = r => require.ensure([], () => r(require('@/views/login/index.vue')), 'user');
 const Layout = r => require.ensure([], () => r(require('@/views/layout/index.vue')), 'layout');
 const Home = r => require.ensure([], () => r(require('@/views/home/index.vue')), 'home');
 

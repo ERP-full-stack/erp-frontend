@@ -45,16 +45,16 @@ export default {
   },
   methods: {
     ...mapActions([
-      'login',
+      'user/login',
     ]),
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.$router.push({
-            path: '/',
-          });
-        } else {
-          return false;
+          if (this['user/login'](this.ruleForm)) {
+            this.$router.push({
+              path: '/',
+            });
+          }
         }
         return true;
       });

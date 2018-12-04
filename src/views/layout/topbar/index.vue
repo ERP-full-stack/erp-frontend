@@ -4,7 +4,7 @@
       ERP-base
     </div>
     <div class="info">
-      <span class="username">{{this.$store.state.login.username}}</span>
+      <span class="username">{{this.$store.state.user.username}}</span>
       <span class="logout" @click="logout">注销</span>
     </div>
   </div>
@@ -14,11 +14,11 @@
 export default {
   methods: {
     logout() {
-      this.$store.dispatch('logout').then(() => {
+      if (this.$store.dispatch('user/logout')) {
         this.$router.push({
-          path: '/logout',
+          path: '/login',
         });
-      });
+      }
     },
   },
 };

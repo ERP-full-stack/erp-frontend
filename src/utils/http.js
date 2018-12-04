@@ -7,6 +7,8 @@ const service = axios.create({
   timeout: 20000,
 });
 
+service.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
 // 添加请求拦截器
 service.interceptors.request.use(config => config, error => Promise.reject(error));
 

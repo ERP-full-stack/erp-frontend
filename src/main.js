@@ -11,6 +11,7 @@ import myUi from './components/index';
 Vue.use(ElementUI);
 Vue.use(myUi);
 
+Vue.config.devtools = true; // 这步很重要
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */

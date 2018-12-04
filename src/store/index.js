@@ -1,12 +1,14 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import login from './module/login';
+import user from './module/user';
+import queryTable from './module/queryTable';
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   modules: {
-    login,
+    user,
+    queryTable,
   },
 });
 

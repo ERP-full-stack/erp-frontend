@@ -1,6 +1,7 @@
 <template>
   <div>
     <query-table
+      ref="queryTable"
       :option="option"
       :tools="tools"
       :formFields="formFields"
@@ -21,6 +22,9 @@ export default {
           label: '刷新',
           icon: 'iconfont icon-refresh',
           show: true,
+          func: () => {
+            this.$refs.queryTable.loadTable();
+          },
         },
       ],
       formFields: [
@@ -54,6 +58,7 @@ export default {
       tables: [{
         url: {
           method: '/reportForm/list',
+          uniqueKey: 'reportForm.list',
           data: {},
         },
         attr: {
@@ -89,6 +94,14 @@ export default {
           fixed: 'right',
           width: '100px',
           options: [
+            {
+              label: '详情',
+              show: true,
+              disabled: false,
+              func: () => {
+                // console.log(row);
+              },
+            },
             {
               label: '详情',
               show: true,
