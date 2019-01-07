@@ -8,10 +8,10 @@
       style="width: 100%"
       @selection-change="handleSelectionChange">
       <el-table-column
-        prop="number"
+        prop="index"
         fixed="left"
         label="序号"
-        width="60">
+        width="50">
       </el-table-column>
       <el-table-column
         type="selection"

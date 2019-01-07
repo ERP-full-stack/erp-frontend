@@ -45,6 +45,11 @@ export default {
           path: '/report-form/list',
           icon: 'icon-custom',
         },
+        {
+          label: '日历',
+          path: '/calendar',
+          icon: 'icon-custom',
+        },
       ],
     };
   },

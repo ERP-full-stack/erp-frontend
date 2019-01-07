@@ -1,6 +1,6 @@
 import Vue from 'vue';
+import fullCalendar from 'vue-fullcalendar';
 import http from './../utils/http';
-
 // 全局组件
 import QueryTable from './query-table/index';
 import SearchPager from './query-table/search-pager';
@@ -17,6 +17,7 @@ const components = [
 const setPrototype = () => {
   Vue.prototype.$bus = new Vue();
   Vue.prototype.$http = http;
+  Vue.component('full-calendar', fullCalendar);
 };
 
 const install = () => {

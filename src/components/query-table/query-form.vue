@@ -5,7 +5,7 @@
              size="mini"
              label-position="right">
         <template v-for="(item, index) in formFields">
-            <form-item :item="item" :model="model" :key="index"></form-item>
+            <form-item :item="item" v-model="model[item.columnName]" :key="index"></form-item>
         </template>
         <el-form-item class="query-form-btns">
           <el-button type="primary" icon="iconfont icon-search" @click="onSubmit">
@@ -32,8 +32,9 @@ export default {
       model: {},
     };
   },
-  mounted() {
+  created() {
     this.createModel();
+    console.log(this.model);
   },
   components: {
     formItem,
@@ -41,12 +42,16 @@ export default {
   methods: {
     onSubmit() {
       // console.log('submit!');
-      // console.log(this.model);
+      console.log(this.model);
     },
     createModel() {
-      // console.log(this.formFields);
       this.formFields.forEach((item) => {
-        this.model[item.columnName] = '';
+        // if (item.type === 'daterange') {
+        //   this.$set(this.model, item.columnName, []);
+        // } else {
+        //
+        // }
+        this.$set(this.model, item.columnName, '');
       });
     },
   },

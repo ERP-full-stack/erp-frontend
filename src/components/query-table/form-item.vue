@@ -3,7 +3,8 @@
     <!--input-->
     <el-input
       v-if="item.type === 'text'"
-      v-model="model[item.columnName]"
+      :value="value"
+      @input="bindChange"
       :disabled="isDisabled(item)"
       :placeholder="item.placeholder" clearable>
       <i v-if="!!item.icon" :slot="doIcon(item)" class="el-input__icon"
@@ -15,7 +16,7 @@
     <!--select-->
     <el-select v-else-if="item.type === 'select'"
                :disabled="isDisabled(item)"
-               :value="modelValue()"
+               :value="value"
                :multiple="item.multiple"
                :placeholder="item.placeholder" clearable
                 @change="bindChange">
@@ -26,23 +27,39 @@
         :value="cell.value">
       </el-option>
     </el-select>
+
+    <!--daterange-->
+    <el-date-picker v-else-if="item.type === 'daterange'"
+      :value="value"
+      type="daterange"
+      range-separator="至"
+      start-placeholder="开始日期"
+      end-placeholder="结束日期"
+      @change="bindChange">
+    </el-date-picker>
   </el-form-item>
 </template>
 
 <script>
 export default {
   name: 'form-item',
-  props: {
-    item: {
-      type: Object,
-      default: () => {},
-    },
-    model: {
-      type: Object,
-      default: () => {},
-    },
+  props: ['value', 'item'],
+  mounted() {
+    console.log(this.item);
+    console.log(this.value);
+    // this.model.name = '123';
+  },
+  data() {
+    return {
+      datea: '',
+    };
   },
   methods: {
+    bindChange(e) {
+      alert(1)
+      console.log(e);
+      this.$emit('input', e);
+    },
     isDisabled(item) {
       if (typeof item.disabled === 'function') {
         const obj = { key: item.columnName, model: this.model };
@@ -80,13 +97,6 @@ export default {
         },
       ];
       return data;
-    },
-    bindChange(value) {
-      this.model[this.item.columnName] = value;
-      this.modelValue(3);
-    },
-    modelValue() {
-      return 2;
     },
   },
 };

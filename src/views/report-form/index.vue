@@ -33,11 +33,6 @@ export default {
           type: 'text',
           placeholder: '请输入姓名',
           columnName: 'name',
-          icon: {
-            slot: 'suffix',
-            class: 'el-icon-search',
-          },
-          complex: '.123',
         },
         {
           label: '状态',
@@ -47,12 +42,10 @@ export default {
           lookup: '', // 接口
         },
         {
-          label: '状态1',
-          type: 'select',
-          placeholder: '请选中状态',
-          columnName: 'status1',
-          lookup: '', // 接口
-          multiple: false,
+          label: '日期范围',
+          type: 'daterange',
+          placeholder: '请选择时间',
+          columnName: 'daterange',
         },
       ],
       tables: [{

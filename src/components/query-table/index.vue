@@ -75,6 +75,9 @@ export default {
       this.loading = true;
       const data = await this.$http.get(this.tables[0].url.method);
       this.tableData = data.data.rows;
+      this.tableData.forEach((item, index) => {
+        this.$set(this.tableData[index], 'index', ((this.currentPage - 1) * this.pageSize) + (1 + index));
+      });
       this.$store.commit(`queryTable/${this.tables[0].url.uniqueKey}/SET_QUERY_TABLE`, data);
       this.loading = false;
     },
